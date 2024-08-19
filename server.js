@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
+const secret = process.env.SECRET_KEY;
 
 /* Referencia al módulo swagger-ui-express */
 const swaggerUi = require('swagger-ui-express')
