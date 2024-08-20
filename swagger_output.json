@@ -10,6 +10,14 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "bearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Enter your bearer token in the format **Bearer &lt;token&gt;**"
+    }
+  },
   "paths": {
     "/items": {
       "post": {
@@ -30,6 +38,11 @@
             }
           }
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "201": {
             "description": "Item successfully created"
@@ -45,6 +58,11 @@
         ],
         "summary": "Get all items entries",
         "description": "Get all items entries",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Items entries successfully obtained"
@@ -69,6 +87,11 @@
             "required": true,
             "type": "string",
             "description": "Item id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -108,6 +131,11 @@
             }
           }
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
             "description": "Item entry succesfully updated"
@@ -133,6 +161,11 @@
             "required": true,
             "type": "string",
             "description": "Item id"
+          }
+        ],
+        "security": [
+          {
+            "bearerAuth": []
           }
         ],
         "responses": {
