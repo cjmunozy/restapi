@@ -11,6 +11,19 @@ const doc = {
     "https"
   ],
   "basePath": "/api",
+  securityDefinitions: {
+    bearerAuth: {
+      type: 'apiKey',
+      name: 'Authorization',
+      in: 'header',
+      description: 'Enter your bearer token in the format **Bearer <token>**'
+    }
+  },
+  security: [
+    {
+      bearerAuth: []
+    }
+  ]
 };
 
 const outputFile = './swagger_output.json'

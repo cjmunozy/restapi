@@ -28,6 +28,13 @@
         "description": "Create an item",
         "parameters": [
           {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "JWT Token in the format 'Bearer <token>'"
+          },
+          {
             "name": "data",
             "in": "body",
             "description": "Data to create an item",
@@ -58,6 +65,15 @@
         ],
         "summary": "Get all items entries",
         "description": "Get all items entries",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "JWT Token in the format 'Bearer <token>'"
+          }
+        ],
         "security": [
           {
             "bearerAuth": []
@@ -81,6 +97,13 @@
         "summary": "Get an item entry",
         "description": "Get an item entry",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "JWT Token in the format 'Bearer <token>'"
+          },
           {
             "name": "id",
             "in": "path",
@@ -113,6 +136,13 @@
         "summary": "Update an item entry",
         "description": "Update an item entry",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "JWT Token in the format 'Bearer <token>'"
+          },
           {
             "name": "id",
             "in": "path",
@@ -155,6 +185,13 @@
         "summary": "Delete an item entry",
         "description": "Delete an item entry",
         "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": "JWT Token in the format 'Bearer <token>'"
+          },
           {
             "name": "id",
             "in": "path",
