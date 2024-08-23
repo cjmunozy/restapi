@@ -14,9 +14,9 @@ const doc = {
   securityDefinitions: {
     bearerAuth: {
       type: 'apiKey',
-      name: 'Authorization',
+      name: 'Token',
       in: 'header',
-      description: 'Enter your bearer token in the format **Bearer <token>**'
+      description: 'Enter your token'
     }
   },
   security: [

@@ -13,9 +13,9 @@
   "securityDefinitions": {
     "bearerAuth": {
       "type": "apiKey",
-      "name": "Authorization",
+      "name": "Token",
       "in": "header",
-      "description": "Enter your bearer token in the format **Bearer &lt;token&gt;**"
+      "description": "Enter your token"
     }
   },
   "paths": {
@@ -28,11 +28,9 @@
         "description": "Create an item",
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "Token",
             "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "JWT Token in the format 'Bearer <token>'"
+            "type": "string"
           },
           {
             "name": "data",
@@ -45,17 +43,15 @@
             }
           }
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "responses": {
           "201": {
             "description": "Item successfully created"
           },
           "400": {
             "description": "Bad request"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       },
@@ -67,16 +63,9 @@
         "description": "Get all items entries",
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "Token",
             "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "JWT Token in the format 'Bearer <token>'"
-          }
-        ],
-        "security": [
-          {
-            "bearerAuth": []
+            "type": "string"
           }
         ],
         "responses": {
@@ -85,6 +74,9 @@
           },
           "400": {
             "description": "Bad request"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       }
@@ -98,23 +90,16 @@
         "description": "Get an item entry",
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "JWT Token in the format 'Bearer <token>'"
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
             "description": "Item id"
-          }
-        ],
-        "security": [
+          },
           {
-            "bearerAuth": []
+            "name": "Token",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -126,6 +111,9 @@
           },
           "404": {
             "description": "Item not found"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       },
@@ -137,18 +125,16 @@
         "description": "Update an item entry",
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "JWT Token in the format 'Bearer <token>'"
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
             "description": "Item id"
+          },
+          {
+            "name": "Token",
+            "in": "header",
+            "type": "string"
           },
           {
             "name": "data",
@@ -161,11 +147,6 @@
             }
           }
         ],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "responses": {
           "200": {
             "description": "Item entry succesfully updated"
@@ -175,6 +156,9 @@
           },
           "404": {
             "description": "Item not found"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       },
@@ -186,23 +170,16 @@
         "description": "Delete an item entry",
         "parameters": [
           {
-            "name": "Authorization",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": "JWT Token in the format 'Bearer <token>'"
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string",
             "description": "Item id"
-          }
-        ],
-        "security": [
+          },
           {
-            "bearerAuth": []
+            "name": "Token",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
@@ -214,9 +191,17 @@
           },
           "404": {
             "description": "Item not found"
+          },
+          "408": {
+            "description": "Request Timeout"
           }
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
 }

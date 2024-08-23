@@ -1,8 +1,9 @@
 const jwt = require('jsonwebtoken');
+const secret = 'byqI7lRE9nRiKWgKNrZoAw==';
 
 const verifyToken = (req, res, next) => {
-  // Extrae el token del encabezado Authorization
-  const token = req.headers['Authorization']?.split(' ')[1];
+  // Extrae el token del encabezado Token
+  let token = req.headers['Token'];
 
   if (!token) {
     return res.status(408).json({ msg: 'No token provided' });
